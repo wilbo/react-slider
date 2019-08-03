@@ -6,6 +6,7 @@ Single slider, similar to `<input type="range" defaultValue={0} />`
     thumbClassName="example-thumb"
     trackClassName="example-track"
     renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+    onAfterChange={() => { console.log('onAfterChange') }}
 />
 ```
 

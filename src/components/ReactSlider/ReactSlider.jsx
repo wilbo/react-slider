@@ -354,12 +354,16 @@ class ReactSlider extends React.Component {
     };
 
     onBlur = () => {
-        this.setState({ index: -1 }, this.onEnd(this.getKeyDownEventMap()));
+        console.log('onBlur');
+        this.setState({ index: -1 }, () => {
+            this.onEnd(this.getKeyDownEventMap());
+        });
     };
 
     onEnd(eventMap) {
+        console.log('onEnd');
         removeHandlers(eventMap);
-        this.fireChangeEvent.bind(this, 'onAfterChange');
+        this.fireChangeEvent.call(this, 'onAfterChange');
     }
 
     onMouseMove = e => {
@@ -584,6 +588,10 @@ class ReactSlider extends React.Component {
 
     resize() {
         const { slider } = this;
+        if (!slider) {
+            return;
+        }
+
         const thumb = this.thumb0;
         const rect = slider.getBoundingClientRect();
 
@@ -832,7 +840,9 @@ class ReactSlider extends React.Component {
     }
 
     fireChangeEvent(event) {
+        console.log('fireChangeEvent');
         if (this.props[event]) {
+            console.log(`Firing ${event}()`);
             this.props[event](undoEnsureArray(this.state.value));
         }
     }
