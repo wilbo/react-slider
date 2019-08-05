@@ -354,14 +354,12 @@ class ReactSlider extends React.Component {
     };
 
     onBlur = () => {
-        console.log('onBlur');
         this.setState({ index: -1 }, () => {
             this.onEnd(this.getKeyDownEventMap());
         });
     };
 
     onEnd(eventMap) {
-        console.log('onEnd');
         removeHandlers(eventMap);
         this.fireChangeEvent.call(this, 'onAfterChange');
     }
@@ -840,9 +838,7 @@ class ReactSlider extends React.Component {
     }
 
     fireChangeEvent(event) {
-        console.log('fireChangeEvent');
         if (this.props[event]) {
-            console.log(`Firing ${event}()`);
             this.props[event](undoEnsureArray(this.state.value));
         }
     }
