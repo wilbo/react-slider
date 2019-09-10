@@ -1,6 +1,6 @@
 {
-  "name": "react-slider",
-  "version": "2.0.0",
+  "name": "wilbo-react-slider",
+  "version": "2.0.2",
   "description": "Slider component for React",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -24,15 +24,9 @@
     "test:coverage": "create-react-styleguide script test:coverage",
     "test:update": "create-react-styleguide script test:update",
     "test:watch": "create-react-styleguide script test:watch",
-    "prepublishOnly": "create-react-styleguide script prepublishOnly",
     "predeploy": "npm run build:styleguide",
     "deploy": "gh-pages -d styleguide",
     "release": "standard-version"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run eslint && npm run test"
-    }
   },
   "dependencies": {},
   "peerDependencies": {
@@ -40,7 +34,6 @@
     "prop-types": "^15.6"
   },
   "devDependencies": {
-    "@testing-library/react": "^8.0.7",
     "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-zillow": "^4.0.3",
     "create-react-styleguide": "^4.0.3",
